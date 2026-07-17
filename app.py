@@ -142,8 +142,7 @@ if df_main is not None and df_exp is not None:
         with st.form("expense_form", clear_on_submit=True):
             exp_month = st.selectbox("Expense Month", ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], index=6)
             exp_desc = st.text_input("Expense Description (e.g. Lift Maintenance, Water Tanker)")
-            exp_amt = st.
-        ("Amount Paid (₹)", min_value=1.0, step=100.0)
+            exp_amt = st.number_input("Amount Paid (₹)", min_value=1.0, step=100.0)
             exp_date = st.date_input("Date of Payment", datetime.date.today())
             
             submit_exp = st.form_submit_button("Add Expense")
