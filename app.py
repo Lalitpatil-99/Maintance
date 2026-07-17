@@ -1,4 +1,4 @@
-import streamlit as st
+in import streamlit as st
 import pandas as pd
 import openpyxl
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
@@ -76,8 +76,8 @@ if df_main is not None and df_exp is not None:
         c_left, c_right = st.columns(2)
         with c_left:
             st.markdown("### ⚠️ Current Outstanding / Defaulters")
-            pending_df = df_main[df_main['Status'] == 'Pending']['Flat/Shop No.', 'Owner Name', 'Receivers Name']
-            st.dataframe(pending_df.rename(columns={"Receivers Name": 'Assigned Collector'}), use_container_width=True, hide_index=True)
+            pending_df = df_main[df_main['Status'] == 'Pending'][['Flat/Shop No.', 'Owner Name', "Receiver's Name"]]
+            st.dataframe(pending_df.rename(columns={"Receiver's Name": 'Assigned Collector'}), use_container_width=True, hide_index=True)
             
         with c_right:
             st.markdown("### 📈 Expense Overview")
