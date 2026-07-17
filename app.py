@@ -76,7 +76,7 @@ if df_main is not None and df_exp is not None:
         c_left, c_right = st.columns(2)
         with c_left:
             st.markdown("### ⚠️ Current Outstanding / Defaulters")
-            pending_df = df_main[df_main['Status'] == 'Pending'][['Flat/Shop No.', 'Owner Name', 'Receiver's Name']]
+            pending_df = df_main[df_main['Status'] == 'Pending']['Flat/Shop No.', 'Owner Name', 'Receivers Name']
             st.dataframe(pending_df.rename(columns={"Receivers Name": 'Assigned Collector'}), use_container_width=True, hide_index=True)
             
         with c_right:
@@ -138,10 +138,12 @@ if df_main is not None and df_exp is not None:
     elif menu == "📉 Log Society Expense":
         st.subheader("Log a New Expense Entry")
         
+    
         with st.form("expense_form", clear_on_submit=True):
             exp_month = st.selectbox("Expense Month", ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], index=6)
             exp_desc = st.text_input("Expense Description (e.g. Lift Maintenance, Water Tanker)")
-            exp_amt = st.number_input("Amount Paid (₹)", min_value=1.0, step=100.0)
+            exp_amt = st.
+        ("Amount Paid (₹)", min_value=1.0, step=100.0)
             exp_date = st.date_input("Date of Payment", datetime.date.today())
             
             submit_exp = st.form_submit_button("Add Expense")
