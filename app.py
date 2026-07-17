@@ -56,7 +56,7 @@ if df_main is not None and df_exp is not None:
         net_balance = total_collected - total_expenses
         
         total_units = len(df_main)
-        paid_units = len(df_main[df_main['Status'] == 'Paid'])
+        paid_units = len(df_main[df_main['Status'].astype(str).str.strip() == 'Paid'])
         collection_pct = (paid_units / total_units) * 100 if total_units > 0 else 0
         
         # KPI Cards
@@ -76,8 +76,9 @@ if df_main is not None and df_exp is not None:
         c_left, c_right = st.columns(2)
         with c_left:
             st.markdown("### ⚠️ Current Outstanding / Defaulters")
-            pending_df = df_main[df_main['Status'] == 'Pending'][['Flat/Shop No.', 'Owner Name', "Receiver's Name"]]
+            pending_df = df_main[df_main['Status'].astype(str).str.strip() == 'Pending'][['Flat/Shop No.', 'Owner Name', "Receiver's Name"]]
             st.dataframe(pending_df.rename(columns={"Receiver's Name": 'Assigned Collector'}), use_container_width=True, hide_index=True)
+
             
         with c_right:
             st.markdown("### 📈 Expense Overview")
