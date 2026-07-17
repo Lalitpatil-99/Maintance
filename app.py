@@ -56,7 +56,7 @@ if df_main is not None and df_exp is not None:
         net_balance = total_collected - total_expenses
         
         total_units = len(df_main)
-                paid_units = len(df_main[df_main['Status'].astype(str).str.strip().str.lower() == 'paid'])
+        paid_units = len(df_main[df_main['Status'].astype(str).str.strip().str.lower() == 'paid'])
 
         collection_pct = (paid_units / total_units) * 100 if total_units > 0 else 0
         
