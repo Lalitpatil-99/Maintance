@@ -77,7 +77,7 @@ if df_main is not None and df_exp is not None:
         with c_left:
             st.markdown("### ⚠️ Current Outstanding / Defaulters")
             pending_df = df_main[df_main['Status'] == 'Pending'][['Flat/Shop No.', 'Owner Name', 'Receiver's Name']]
-            st.dataframe(pending_df.rename(columns={"Receiver's Name": 'Assigned Collector'}), use_container_width=True, hide_index=True)
+            st.dataframe(pending_df.rename(columns={"Receivers Name": 'Assigned Collector'}), use_container_width=True, hide_index=True)
             
         with c_right:
             st.markdown("### 📈 Expense Overview")
